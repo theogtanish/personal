@@ -1,64 +1,67 @@
 <div align="center">
 
-# 🛠️ Personal
+# Personal
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python&logoColor=white)
 ![Platform](https://img.shields.io/badge/Platform-Linux-informational?style=for-the-badge&logo=linux&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=for-the-badge)
 
-> Scripts and tools I actually use day-to-day on my own machine. 🔧  
+> Scripts I actually use on my own machine.  
 > Not tutorials. Not exercises. Just things I built because I needed them.
 
 </div>
 
 ---
 
-## 👋 About This Repo
+## About
 
-Hey, I'm **Tanish**. This is where I keep personal-use scripts — small tools I wrote to automate annoying things on my setup.
+I'm **Tanish**. This is where I keep scripts I wrote to fix annoying things on my setup.
 
-Everything here runs on my **Arch Linux** machine. If it works for you too, great. If not, tweak it.
-
----
-
-## 📂 Projects
-
-| #   | Project      | File                       | Description                                                                                                                                                                                                          | Date Added |
-| --- | ------------ | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| 1   | 🗂️ Sorty | [`sorty.py`](sorty.py) | A background daemon that watches `~/Downloads/brave` and automatically moves files into the right folders — Videos, Pictures, Music, Documents, apps, archives — by extension. Uses `watchdog`. Autostarts via Hyprland. | 2026-04-05 |
-
-> More tools coming as I keep building stuff I need. 👀
+Everything runs on my **Arch Linux** machine.
 
 ---
 
-## 🛠️ How to Run
+## Projects
 
-Make sure you have **Python 3** and **pip** installed, then follow the steps for each tool:
+| #   | Project   | File                           | Description                                                                                                                                          | Date Added |
+| --- | --------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| 1   | Sorty     | [`sorty.py`](sorty.py)         | Watches `~/Downloads/brave` and moves files into the right folders — Videos, Pictures, Music, Documents, apps, archives — by extension. Autostarts via Hyprland. | 2026-04-05 |
+| 2   | Mousike   | [`mousike.py`](mousike.py)     | Terminal music downloader. Search YouTube, pick a result, get an MP3 in `~/Music`. Named after the ancient Greek word for music — *Μουσική*.         | 2026-04-11 |
 
-**Install the dependency:**
+---
+
+## How to Run
+
+### Sorty
 
 ```bash
 pip install watchdog --break-system-packages
-```
-
-**Place the script:**
-
-```bash
 mkdir -p ~/scripts
 mv sorty.py ~/scripts/sorty.py
 ```
 
-**Set Brave's download folder** to `~/Downloads/brave` in `brave://settings/downloads`
+Set Brave's download folder to `~/Downloads/brave` in `brave://settings/downloads`
 
-**Autostart with Hyprland** — add this to your `hyprland.conf`:
-
+Add to `hyprland.conf`:
 ```
 exec-once = python3 ~/scripts/sorty.py
 ```
 
 ---
 
-## ⚙️ System
+### Mousike
+
+```bash
+pip install yt-dlp --break-system-packages
+sudo pacman -S ffmpeg
+python mousike.py
+```
+
+No arguments. It asks for a search query and handles the rest. Downloads to `~/Music` as 320kbps MP3.
+
+---
+
+## System
 
 - OS: Arch Linux
 - WM: Hyprland
@@ -66,12 +69,6 @@ exec-once = python3 ~/scripts/sorty.py
 
 ---
 
-## 🙌 Connect
-
-If any of this is useful to you, feel free to star ⭐ the repo or follow along!
-
----
-
 <div align="center">
-  <sub>Built for my own machine. Use it if it helps. Break it if you want. 🤷</sub>
+  <sub>Built for my own machine. Use it if it helps. Break it if you want.</sub>
 </div>
